@@ -1,0 +1,41 @@
+{% assign countdown_enable = block.settings.enable_countdown %}
+{% assign heading = block.settings.heading %}
+{% assign year = block.settings.year %}
+{% assign month = block.settings.month %}
+{% assign day = block.settings.day %}
+
+{{ 'jquery.min.js' | asset_url | script_tag }}
+{{ 'countdown.min.js' | asset_url | script_tag }}
+
+{% if countdown_enable %}
+
+  <div>
+    {% if heading %}
+    <h3>{{ heading }}</h3>
+    {% endif %}
+    <div id="countdown" class="is-countdown"></div>
+  </div>
+
+  <script>
+    const countdownday = '{{year}}/{{month}}/{{day}}';
+    $('#countdown').countdown( countdownday, function(event) {
+      $(this).html(event.strftime('%d days %H:%M:%S'));
+    });
+  </script>
+
+{% endif %}
+
+{% schema %}
+{
+"name": "Countdown Timer",
+"target": "section",
+"settings": [
+{ "type": "checkbox", "id": "enable_countdown", "label": "Enable Countdown Timer", "default": true },
+{ "type": "text", "id": "heading", "label": "Heading", "default": "Countdown" },
+{ "type": "product", "id": "product", "label": "product", "autofill": true },
+{ "type": "text", "id": "year", "label": "Year", "default": "2024" },
+{ "type": "text", "id": "month", "label": "Month", "default": "12" },
+{ "type": "text", "id": "day", "label": "Day", "default": "12" }
+]
+}
+{% endschema %}

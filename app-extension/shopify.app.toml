@@ -1,0 +1,18 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "71e926815a1a0bb73b86a8b26017e9ed"
+name = "Montana Countdown Timer"
+application_url = "https://seal-great-wren.ngrok-free.app/"
+embedded = true
+
+[build]
+dev_store_url = "quick-start-7f65b585.myshopify.com"
+
+[auth]
+redirect_urls = [ "https://seal-great-wren.ngrok-free.app/authenticate" ]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
