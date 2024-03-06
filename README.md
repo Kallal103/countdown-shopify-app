@@ -33,7 +33,7 @@ Design and implement a countdown timer app extension for Shopify product pages t
 
 - `cd app-extension` & run `npm install` and `npm run dev`
 
-- Share your post to ngrok url `ngrok http --domain=seal-great-wren.ngrok-free.app 8000`
+- Share your port to ngrok url `ngrok http --domain=seal-great-wren.ngrok-free.app 8000`
 
 - install `this apps` on your development store
 
